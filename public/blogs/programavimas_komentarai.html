@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+
+    <!-- <script src="/lib/p5.min.js"></script> -->
+    <!-- <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <!-- <script src="lib/jquery.js"></script> --> -->
+    <!-- <script src="lib/shjs/sh_main.min.js"></script> -->
+    <script src="/lib/highlight/highlight.min.js"></script>
+    <script src="/lib/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/canvas-generator.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script defer src="/scripts/binds.js"></script>
+
+    <link rel="stylesheet" type="text/css" href = "/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href = "/styles/style.css">
+    <link rel="stylesheet" type="text/css" href = "/lib/shjs/sh_style.min.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+    <meta charset="utf-16" />
+
+    <title>_</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+      <h1>Komentarai</h1>
+      <p>Komentarai yra tiesiog tekstas kitiems žmonėms, kompiliatoriui, arba kompiuteriui jie visai nerūpi ir tai juos tiesiog ištrina.</p>
+      <p>Komentarai dažniausia rašomi su dvejais pasviraisiais brūkšniais <code>//</code>, arba <code>#</code> ir tada pasibaigia su eilutės pabaiga. Bet jie gali būti rašomi ir <code>/* komentaras */</code> ir kai kuriose kalbose dar kitais būdais, bet šito tūrėtų užtekti.</p>
+<pre><code class="language-javascript">// paverčia milisekundes į valandas.
+function mil2val(mil){
+  // Žmonėms, kurie bijo dalybos: kompiliatoriai iš karto padaro tokią dalyba, taigi: let val = mil / 3,600,000; (plius/<b>minus</b>)
+  let val = mil / 1000 / 60 / 60;
+  // Math.floor() numeta visus skaičius, kurie yra po kablelio (apvalina žemyn).
+  val = Math.floor(val);
+  /* 
+  Ši eilutė dabar nieko nedaro, nes ji paversta komentaru, bet kitaip būtų kiek valandų dienoje. 
+  Procentų ženklas neturi NIEKO bendro su procentais čia, tai yra liekana (dalyba, kai nenori turėti skaičių po kablelio)
+  */
+  // val %= 24;
+  return val;
+}</code>
+</pre>
+      <p><i>Tiek daug komentarų nereikėtų rašyti, nes žmonės, kurie skaitys tavo kodą darbe turėtų žinoti kas yra <code>Math.floor()</code> ir liekanos. Be to skaityti kas antrą eilutę su labai skirtingais eilučių ilgiais yra sunku. <e expl="<pre><code class='language-javascript' onload='hljs.highlightAll()'>function mil2val(mil){
+  let val = mil / 1000 / 60 / 60;
+  val = Math.floor(val);
+  return val;
+}</code></pre>" onclick="">Čia ta pati funkcija be komentarų</e>.</i></p>
+    </div> <!-- .content -->
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+
+    <script src="/lib/p5.min.js"></script>
+    <!-- <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <!-- <script src="lib/jquery.js"></script> --> -->
+    <!-- <script src="lib/shjs/sh_main.min.js"></script> -->
+    <script src="/lib/highlight/highlight.min.js"></script>
+    <script src="/lib/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/canvas-generator.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script defer src="/scripts/binds.js"></script>
+
+    <link rel="stylesheet" type="text/css" href = "/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href = "/styles/style.css">
+    <link rel="stylesheet" type="text/css" href = "/lib/shjs/sh_style.min.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+    <meta charset="utf-16" />
+
+    <title>_</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+      <h1>Masyvai</h1>
+
+      <p>
+        Masyvai - visokiausių elementų sarašai, jie, skritingai nei aibės, gali turėti du, ar daugiau, vienodų daiktų. Ir daugelyje kalbų jie turi žinomą, pradinį dydį, kuris nesikeičia. 
+        
+        <br>
+
+        Beto, atmintyje jie neturį tarpų tarp jų dalių/daiktų/elementų, pavyzdžiui 4 raidžių masyvas atmintyje atrodys taip: <code><e expl="Čia yra Hex skaičiai, jie eina nuo 0, iki 15 (šešioliktainė skaičiavimo sistema), jie dažnai naudojami, kaip pakeitimas 01100001.">61 42 43 44 00</e></code>, o ne: <code>61 00 00 00 00 00 00 00 42 43 00 00 00 44 00</code>.
+      </p>
+
+      <br>
+      Čia mano masyvo pavyzdys parašytas naudojant kalbą: Java:
+<pre class="language-Java"><code>String[] žodžiai = new String[5];
+žodžiai[0] = "Pirmas elementas"; // Masyvų indeksai, gerose kalbose, prasideda nuo 0!
+žodžiai[4] = "Paskutinis elementas"; // Ir taip... Čia 2 žodžiai, o ne 1 žodis...
+
+String betkurisŽodis = žodžiai[2];
+</code></pre>
+      <i>Čia sukuriu 5 teksto daiktų ilgio masyvą: <code>{"", "", "", "", ""}</code>. Tada pakeičiu kelius to masyvo elementus į savo tekstą, ir jis patampa: <code>{"Pirmas elementas\0", "", "", "", "Paskutinis elementas\0"}</code>. Galiausia pakeičiu berkurisŽodis į trečią žodžiai elementą ("")</i>
+
+      <br><br><br>
+      Beveik tas pats masyvas su JavaScript:
+<pre class="language-JavaScript"><code>const žodžiai = []
+žodžiai[0] = "Pirmas elementas"
+žodžiai[4] = "Paskutinis elementas"
+
+žodžiai.push("JavaScript leidžia padidinti masyvūs :(")
+
+betkurisŽodis = žodžiai[2]
+</code></pre>
+      <i>Javascript neklauso tipų, bet jei nėra <code>= []</code> dalies, neišeis naudoti <code>[0]</code>/<code>[4]</code> ir <code>.push()</code></i>.
+
+      <br><br><br>
+      Su pirmu C būdu:
+<pre class="language-C"><code>const char* žodžiai[5];
+žodžiai[0] = "Pirmas elementas";
+žodžiai[4] = "Paskutinis elementas";
+
+const char* betkurisŽodis = žodžiai[2];
+</code></pre>
+      <i>Šis būdas naudojamas greitams, žinomo dydžio masyvams, pavyzdžiui kubo sienoms, <u style="text-decoration-style: wavy;">arba gyvūnų rušims</u>.</i>
+
+      <br><br><br>
+      Su antru C būdu:
+<pre class="language-C"><code>const char* *žodžiai = malloc(dabartinėSavaitėsDiena * 32); // C kalboje kintamuosius nežinomus kompiliacijos laiku reikia kurti taip.
+// beto, aš, čia, kiekvienam žodžiui duodu 32 raides (baitus), nes dar nežinau kiek daugiausia raidžių man reikės, bet turbūt nedaugiau, kaip 32.
+žodžiai[0] = "Pirmas elementas";
+žodžiai[4] = "Paskutinis elementas";
+
+const char* betkurisŽodis = žodžiai[2];
+free(žodžiai);
+</code></pre>
+<i>Šis būdas naudojamas lėtesniams, bet kintamo dydžio masyvams.</i>
+
+
+
+    </div> <!-- .content -->
+  </body>
+</html>

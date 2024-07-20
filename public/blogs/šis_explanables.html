@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+
+    <script src="/lib/p5.min.js"></script>
+    <!-- <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <!-- <script src="lib/jquery.js"></script> --> -->
+    <!-- <script src="lib/shjs/sh_main.min.js"></script> -->
+    <script src="/lib/highlight/highlight.min.js"></script>
+    <script src="/lib/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/canvas-generator.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script defer src="/scripts/binds.js"></script>
+
+    <link rel="stylesheet" type="text/css" href = "/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href = "/styles/style.css">
+    <link rel="stylesheet" type="text/css" href = "/lib/shjs/sh_style.min.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+    <meta charset="utf-16" />
+
+    <title>_</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+      <h1>Paaiškinamas</h1>
+      <p>Paaiški<u>nam</u>as yra mano sukurtas <e expl="Dokumentų/puslapių disaino kalba su tuzino visokiausių elementų, kaip paragrafai, mygtukai, klavišų kombinacijos ir t.t.">HTML</e> elementas (<e expl="Čia būna paaiškinimai">Šio elemento pavizdys</e>). Jis turi žalią, pabrauktą tekstą, kuris atrodo truputi kaip <a href="http://" target="_blank" rel="noopener noreferrer">nuoroda</a>, tam, kad žmonės norėtų tai spausti, arba bent, turėtų norėti, nes šiais laikais daugelis puslapių kažkodėl nuėjo nuo <q>mėlinas perbrauktas tekstas LYGU nuoroda!</q> disaino.</p>
+
+      <p>Pats kodas šiam dalykui nėra labai sunkus, aš tiesiog pereinu per &lt;e&gt; elementus ir įmetu juos į <q>žodyną</q>, kuris pasilieką per visą puslapį, taigi jei pereisite visus tinklaraščius, pagrindinį puslapį ir dažnai užduodamus klausimus jūs galite susirinkti visus paaiškinimus. <br>
+      Po to aš pasižiūriu, ar kažkur, kas nors, kažką paspaudė ir, jei paspaustas elementas yra &lt;e&gt;, aš sukuriu paragrafo elementą, įmetu į jį paaiškinimo tekstą, arba jei nerandu jo: <code>"¯\\_(ツ)_/¯&lt;br&gt;<strong><i>Užmiršau parašyti paaiškinimą!</i></strong>" + "&lt;br&gt;&lt;br&gt;" + google(e.innerText)</code> ir pasižiūriu, kur jį galiu padėti, kad nenueitų už ekrano.</p>
+      </p>
+
+      <p>Čia, jei kas nori ~visas kodas:</p>
+<pre><code class="language-javascript">// kai pereinate į kitą tinklaraštį ar pan. ši eilutė, jei gali paėma paaiškinimų <q>žodyną</q> 
+const explanations = JSON.parse(localStorage.getItem("explanations"), mapReviver) || new Map();
+
+// šitai palaukia kol ~viskas puslapyje atsisiunčia ir nutinka
+window.addEventListener("load", function(__e) { // kodėl __e? ¯\_(ツ)_/¯
+
+    // _e tik nes aš nenorėjo tiesiog e, man atrodo, šiaip, neturi reikšmės, nes pavadinimas ir šis _e trumpai gyvena.
+    for(let _e of document.getElementsByTagName("e"))
+        if(_e.getAttribute("expl"))
+            explanations.set(keyify(_e.innerText), _e.getAttribute("expl"));
+
+    document.addEventListener("click", function(_e) {
+
+        // Čia, aš sakyčiau, plius minus viskas yra aišku žmonėms, kurie dirba su Javascript
+        // beje .tagName, kažkodėl duoda viską didžiosiomis raidėmis.
+        if(_e.target.tagName === 'E'){
+            const e = _e.target;
+            const p = document.createElement("p");
+            p.className = "explanation"
+            p.innerHTML = 
+                    e.getAttribute("expl") 
+                 || explanations.get(keyify(e.innerText)) 
+                 || "¯\\_(ツ)_/¯<br><strong><i>Užmiršau parašyti paaiškinimą!</i></strong>" + "&lt;br&gt;&lt;br&gt;" + google(e.innerText);
+    
+            e.p = p; // čia Javascript turėtų pridėti tik nuorodas... Aš tikiuosi!
+            p.e = e;
+
+            e.p.style.left = _e.pageX     + "px";
+            e.p.style.top  = _e.pageY + 5 + "px";
+
+            const _width = (window.innerWidth > 480) ? 512 : 720; // mobiliesiems
+
+            if(_e.pageX + _width + 40 > window.innerWidth)
+                e.p.style.left = _e.pageX - _width + "px";
+
+            document.body.appendChild(e.p);
+
+            explanations.set(keyify(e.innerText), p.innerHTML);
+            localStorage.setItem("explanations", JSON.stringify(explanations, mapReplacer));
+
+        } else if(_e.target.className !== "explanation"){
+            // jei paspaustas daiktas nėra paaiškinamas, šitai ištrina visus paaiškinamuosius.
+            const col = document.getElementsByClassName("explanation");
+            for(let i = col.length - 1; i >= 0; i --)
+                if (col.item(i))
+                    col.item(i).remove();
+        }
+    })
+})
+
+function keyify(str){
+    return str.replace(/\s/g, "");
+}
+
+function google(search){
+    const url = "https://www.google.com/search?q=" + search;
+    return "<a href='" + url + "'>Paieškokite naudodami Google!</a>" ;
+}
+</code></pre>
+
+      <p>Beje, <q>mapReplacer</q> ir <q>mapReviver</q> turėtų būti Javascript funkcijos, bet nėra, taigi aš jas paėmiau iš <a href="https://stackoverflow.com/questions/29085197/how-do-you-json-stringify-an-es6-map">čia</a>. Šiame puslapyje neturiu, nes turiu nuorodą į kitą puslapį, kuris turi.</p>
+
+
+    </div> <!-- .content -->
+  </body>
+</html>

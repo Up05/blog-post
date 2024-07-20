@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+
+    <script src="/lib/p5.min.js"></script>
+    <!-- <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <!-- <script src="lib/jquery.js"></script> --> -->
+    <!-- <script src="lib/shjs/sh_main.min.js"></script> -->
+    <script src="/lib/highlight/highlight.min.js"></script>
+    <script src="/lib/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/canvas-generator.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script defer src="/scripts/binds.js"></script>
+
+    <link rel="stylesheet" type="text/css" href = "/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href = "/styles/style.css">
+    <link rel="stylesheet" type="text/css" href = "/lib/shjs/sh_style.min.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+    <meta charset="utf-16" />
+
+    <title>_</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+      <h1>Funkcijos</h1>
+      <p>Funkcija yra operacija, arba operacijų seka, kurią tu norėtum suskaičiuoti, arba padaryti daugelį kartų, jos <s>nėra</s> būtinos, bet be jų reikėtų kopijuoti LABAI daug kodo <i>(arba šokinėti į kažkur ir atgal)</i>. Funkcijos gali paimti parametrus, arba argumentus, kažką paveikti ir atiduoti kažkokią reikšmę.</p>
+      <p>Funkcijos, pavyzdžiui C kalboje rašomos: <code>reikšmės-tipas</code> <code>pavadinimas</code> <code>(<e expl="Argumentas.">arg</e>-tipas arg-pavadinimas)</code> <code>{bet-kas; return reikšmė;}</code>.</p>
+<pre><code class="language-c">int atimti(int a, int b){
+  return a - b;
+}</code></pre>
+
+      <p>Kaip ir kintamieji, skirtingose kalbose funkcijos rašomos truputi kitaip, pavyzdžiui Javascript pakeičia reikšmės tipą į <code>function</code> žodį ir tiesiog išmeta argumentų tipus, taigi:</p>
+      <pre><code class="language-javascript">function atimti(a, b)</code></pre>
+
+      <p>Rust seka savo savotišką rašymą:</p>
+      <pre><code class="language-rust">fn atimti(a:i32, b:i32) -> i32 {a - b}</code></pre>
+      <i>Rust, kaip C ir Java turi turėti kabletaškius, taigi kai mes nepadedame jų funkcijose, Rust interpretuoja tai, kaip <q>return ...;</q>, arba funkcijos reikšme. <code>{ a + b }</code> yra taspats, kaip <code>{ return a + b; }</code></i>
+
+    </div> <!-- .content -->
+  </body>
+</html>

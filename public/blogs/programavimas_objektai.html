@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+
+    <!-- <script src="/lib/p5.min.js"></script> -->
+    <!-- <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <!-- <script src="lib/jquery.js"></script> --> -->
+    <!-- <script src="lib/shjs/sh_main.min.js"></script> -->
+    <script src="/lib/highlight/highlight.min.js"></script>
+    <script src="/lib/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/canvas-generator.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script defer src="/scripts/binds.js"></script>
+
+    <link rel="stylesheet" type="text/css" href = "/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href = "/styles/style.css">
+    <link rel="stylesheet" type="text/css" href = "/lib/shjs/sh_style.min.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+    <meta charset="utf-16" />
+
+    <title>_</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+      <h1>Objektai, arba: daiktai</h1>
+      <p>
+        Objektai yra sudaryti iš raktų ir verčių. Programavime daiktai yra visai panašūs į tikro pasaulio daiktus. Pavyzdžiui, kėdė turi kažkokę padėtį, kruvą ją veikiančių jėgų ir jos dalis, kaip: 4 kojos, sėdinę ir atlošą, beto dar kitų Fizikos, Chemijos ir Biologijos savybių. Programavime, pavyzdžiui, Priešas, gali turėti: padėtį, jėgas, sveikatą ir taip toliau. Beto ir programavime ir ne, daiktai yra tik žmonių sugalvotas dalykas, suprasti viską lengviau, programavime daiktai ne kiek daugiau, kaip grupė kintamųjų, arba, dažnai, iš eilės sudėtų 0 ir 1, o tikrame pasaulyje: atomų ir molekulių kruva. Daiktai, dar gali turėti funkcijas, kurios, savyje yra vertė, kaip 5, arba "Kažkoks tekstas..."
+
+        <br><br>
+        <i>Čia mano kėdės "implementacija":</i>
+<pre><code class="language-Java">class Kėdė {
+  double masė, temperatūra;
+  Vector3[] jėgos = new Vector3[∞]; // Collection&lt;Vector3&gt; jėgos = Collection<>(); būtų teisingiau, bet tas pats.
+  Vector3 pasisukimas;
+
+  Koja[] kojos = new Koja[4];
+  Sėdinė sėdinė;
+  Atlošas atlošas;
+
+  Kėdė(Object... aiTingiu){ // "Object..." leidžia įmesti kiek nori, kokių tik nori argumentų į funkciją.
+    masė = aiTingiu[0]; ....
+  }
+
+  public Vector3[] gautiJėgas(){
+    return jėgos;
+  }
+}</code></pre>
+
+      </p>
+      
+    </div> <!-- .content -->
+  </body>
+</html>

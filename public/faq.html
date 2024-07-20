@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+    <!-- <script src="lib/jquery.js"></script> -->
+    <!-- <script src="lib/p5.min.js"></script> -->
+    <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <script src="/lib/highlight/highlight.min.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script src="/scripts/resize-handler.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" >
+    <link rel="stylesheet" type="text/css" href="/styles/layout.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+
+    <meta charset="utf-8" />
+    <title>FAQ</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+    <script src="/nav.js"></script>
+    <div class="content">
+      <h1><e expl="Dažnai Užduodami Klausimai - FAQ (Frequently Asked Questions).">Dažnai Užduodami Klausimai</e></h1>
+
+      <h2>Kodėl aš rašau šį puslapį?</h2>
+      <p><ul>
+          <li>Man reikia išmokti rašyti. <i>Kas, man atrodo, nebus sunku pastebėti skaitant šį puslapį.</i></li>
+          <li>Dar daugiau programavimo ir, ypač, puslapių kūrimo praktikos.</li>
+        </ul></p>
+      
+      <br>
+
+      <h2>Kas per daiktas yra tas <q>\</q> prie šviesios ir tamsios temų?</h2>
+      <p>Geras klausimas, dar nežinau. Bet mano planas yra padaryti <q>linksmą režimą<i>/būseną/išvaizdą...</i></q>. Tai nebus skirtas veikti mobiliuosiuose, nebent, jei jie bus paversti ant šono, beje niekas čia neskirta veikti <q>Internet Explorer</q> interneto naršyklėje, nes - NE. Jei jūs dabar naudojate <q>Internet Explorer</q> aš padariau <a href="/fun/browser_lottery/browser_lottery.html">įrankį išsirinkti geriausią interneto naršyklę</a>. Be neveikimo keliuose aplinkose, kaip ir sakiau, dar nežinau.</p>
+
+      <br>
+
+      <h2>Kokius įrankius aš naudojau šio puslapio darymui?</h2>
+
+      <!-- <h3>HTML</h3> -->
+      <p>HTML - kalba skirta puslapių dizainui, aš jos nevadinčiau programavimo kalba, nes ji tiesiog nusako <e expl="HTML/DOM elementai yra <q>dėžutės</q> su, dažniausia, tekstu. <br><br> Pavyzdžiui: &ltp&gt(paragrafas/pastraipa), &ltinput&gt(kažkokios informacijos įvedimas) ir t.t. <code>&ltbutton&gtMygtukas&lt؜&sol;button&gt</code> = <button class='example'>Mygtukas</button>">HTML elementus</e> ir kelius tų elementų bruožus, pavyzdžiui paragrafų tekstą, nuotraukų vietą ir dydį.</p>
+      <br>
+      <!-- <h3>CSS / SCSS</h3> -->
+      <p>CSS &ndash; nusako puslapio elementų stilių. pavyzdžiui paragrafo teksto, arba fono spalvą ir t.t. Ir vėl, aš nevadinčiau CSS programavimo kalba, nors ji ateina visai arti prie programavimo kalbos, turėdama: kintamuosius, funkcijas*, salygas* ir daugiau beveik programavimo daiktų.
+      <br>
+        Taip pat vietoj CSS aš naudojau SCSS, kas yra CSS + keli patogumo dalykai, kaip kintamieji su <code>$kintamasis</code>, ne <code>--kintamasis</code> ir <code>var(--kintamasis)</code>, <code>a {color: red; b {color: blue}}</code> vietoj <code>a {color: red;} a b {color: blue}</code>.
+      </p>
+      <br>
+      <!-- <h3>Javascript</h3> -->
+      <p>Javascript &ndash; programavimo kalba, kaip C, Java, Rust, Pascal ir t.t. Javascript yra beveik vienintelė kalba, kurią naudojant galima rašyti puslapius (iš klientų pusės).</p>
+      <br>
+      <!-- <h3>Firebase, turbūt</h3> -->
+      <p><a href="https://firebase.google.com/">Firebase</a> &ndash; dabar, Google <i>platforma</i> su daugeliu įrankių, bet aš Firebase naudoju tik kaip 24 valandų per dieną <s>serverį</s> ir lengvą būdą turėti tą <i>gražią</i> nuorodą: <code>darnežinau.app</code> arba <code><e expl="Šita geresnė!">darnežinau.com</e></code>, o ne <code>127.0.0.2:1234</code>.</p>
+      <br>
+      <!-- <h3>Visual Studio Code ir Užrašinė</h3> -->
+      <p><a href="https://code.visualstudio.com/">Visual Studio Code</a> &ndash; kodo redagavimo programa, man atrodo, dabar, pati populiariausia šiai paskirčiai.</p>
+      <p>Užrašinė (notepad.exe) &ndash; teksto redagavimo programa.</p>
+      <br>
+      <!-- <h3>Bibliotekos</h3> -->
+      <p><a href="https://p5js.org/">P5JS (Processing 5)</a> &ndash; P5.js padaro <e expl="Canvas API - Suteikia būdą piešti vaizdus su Javascript ir HTML kalbomis. <e expl='Tiesiog medžiaginė paveikslo dalis.'>Canvas</e>, o <e>API</e>">Javascript Canvas API</e> truputi lengvesne ir, geriausia, išmeta daug kodo.</p>
+
+      <!-- NEBENAUDOJU! <p><a href="http://shjs.sourceforge.net/">SHJS (Syntax highlight)</a> - kodo sintaksės paryškinimo biblioteka. HTML turi &ltcode&gt elementą, bet, jis tiesiog pakeičia teksto stilių į <e expl="visų raidžių ir simbolių* plotis yra vienodas.">monospace</e> </p> -->
+      <p>
+        <a href="https://highlightjs.org/">Highlight</a> ir <a href="https://ace.c9.io/">Ace</a> &ndash; aš perėjau per pakankamai daug kodo sintaksės paryškinimo bibliotekų, šios dvi taip pat yra tam, ir galiausia nusprendžiau pasilikti prie šių dviejų. Highlightjs aš naudosiu, ir yra skirta kodo blokams, kurie nesikeičia, ar jei tiksliau, kurių jūs negalėsite pakeisti/rašyti. Ace - atvirkščiai, tiems, kurie bus keičiami, tai yra vos ne kodo redaktorius su mygtukų kombinacijomis, sintaksės tikrinimu ir t.t.
+      </p>
+      <p>
+        <a href="https://github.com/Up05/BindsJS">BindsJS</a> &ndash; biblioteką, kurią aš kažkados parašiau, ji duodą lengvą būdą pridėti klaviatūros sutrumpinimus.
+      </p>
+      <p>
+        <a href="https://jquery.com">jQuery</a> &ndash; bendra/visuotinė Javascript biblioteka, aš nemanau, kad ją naudosiu, bet kol kas ją turiu, taigi įrašau čia.
+      </p>
+      <h3><s>NodeJS/Java... <e expl='Programa/kodas iš <s>serverio</s> pusės, o ne klientų, tai dažniausia daro daiktus su duomenų bazėmis, paduoda HTML ir t.t. Lietuviškai <q>backend</q> - turbūt: <q>posistemė</q>.'>(backend)</e></s></h3>
+      <p>
+        Aš, turbūt, nerašysiu nė kiek posistemės (backend), didžiojoje dalyje, nes man tai nebūtina. Aš nedarysiu profilių, nes komentarai, patinka/nepatinka, kitų žmonių tinklaraščių rašimo čia nebus. Komentarai ir patinkamumas turbūt bus išspresti su "Facebook". Mano dabartinis planas, tiesiog dalintis parašęs straipsnius per ten. O jei kas nori rašyti tinklaraščius apie daiktus panašius į esančius čia, patys pasirašykit puslapį!
+        <br>
+        Dėl visokiausių duomenų truputi blogiau, nes aš manau, kad man prireiks kokio žaidimo taškų/rekordų sekimo, bet kol kas tai nebūtina ir gal apsieisiu. Taip pat Firebase. turi Could Firestore.
+      </p>
+
+      <h2>Kodėl paspaudus <kbd>Ctrl + Shift + C</kbd> viskas yra Anglų kalba?</h2>
+      <p>Aš dar vis truputi nemoku programuoti Lietuvių kalba ir aišku aš galėčiau visus kintamuosius vadinti <code>a ą b c č d e ę ė f...</code> ir funkcijas: <code>f g h...</code>, bet sėkmės skaitant tą, o naudojant žodžius man reikėtų labai daug išsivertinėti ir, arba šveplauti, arba spaudinėti <kbd><e expl="Windows mygtukas, kairėje nuo <kbd>Alt</kbd> ir dešnėje <kbd>Fn</kbd><img src='assets/logos/windows-light.png' height='128'>">Win Key</e> + Space</kbd>(Windows 7: <kbd>Alt + Shift</kbd>) LABAI daug.</p>
+      <p>Čia kažkokia funkcija, kurią aš parašiau kažkados ir išsirinkau plius, minus atsitiktinai: </p>
+      <div class="comparison">
+<pre class="language-cpp"><code>int CommandParser::letter2int(char letter) {
+  int output  = (int) letter;
+      output -= 65;
+  if (output >= 32)
+      output -= 32;
+  return output;
+}</code></pre>
+  
+<pre class="language-cpp"><code>int KomandųAnalizatorius::
+    raidėĮℤ(char raidė) {
+      
+  int produktas  = (int) raidė;
+      produktas -= 65;
+  if (produktas >= 32) // mažosioms raidėms
+      produktas -= 32;
+  return produktas;
+}</code></pre>
+
+<pre class="language-cpp"><code>// galima būtų ir taip.
+
+#include <؜cctype.h>
+int CommandParser::letter2int(char c) {
+  return tolower(c) - 97; 
+}</code></pre>
+      </div>
+      
+      <p>Bet, kaip matote, lietuvių kalbos versija, yra ilgesnė, net ir „SveikajįSkaičių" pakeitus į vieną simbolį, beto visi C++ kalbos žodžiai yra anglų kalba, taigi vieną žodį reikia skaityti viena kalba, kitą kita, nežinau kaip blogai tai yra, nes šiame pavyzdyje taip pat pakankamai mažai C++ žodžių. <a href="https://pastebin.com/3ZMNk6vQ">Čia, truputi išrinktas pavyzdys su daugiau programavimo kalbos žodžių.</a> Dėl to aš tingiu bandyti išversti visą šitą failą į lietuvių kalbą.</p>
+      
+      <e expl="utf-8 naudoja nuo 1 iki 4 baitų, utf-16 visad 2, utf-32 visad 4 ..." hidden>utf-8</e>
+      <i>Taipogi C++ turbūt nebuvo pats geriausias pavyzdys, nes didžioji* dalis jos kompiliatorių naudoja tik 
+        <e expl='ASCII (American Standard Code for Information Interchange) 127 arba 255 teksto simbolių komplektas, kuris buvo LABAI populiarus anksčiau, šiomis dienomis tai pakeista <q><e expl="teksto simbolių, raidžių ir jaustukų turintis apie visas raides, dažniausia jo forma šiandien yra <e>utf-8</e>">Unicode</e></q>. Jame yra tik Amerikietiškos raidės ir simboliai (jei 127-i simboliai).'>ASCII</e> raides, bet tas pats.</i>
+
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    </div>
+
+
+
+
+
+  </body>
+</html>

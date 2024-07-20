@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+
+    <script src="/lib/p5.min.js"></script>
+    <!-- <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <!-- <script src="lib/jquery.js"></script> --> -->
+    <!-- <script src="lib/shjs/sh_main.min.js"></script> -->
+    <script src="/lib/highlight/highlight.min.js"></script>
+    <script src="/lib/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/canvas-generator.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script defer src="/scripts/binds.js"></script>
+
+    <link rel="stylesheet" type="text/css" href = "/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href = "/styles/style.css">
+    <link rel="stylesheet" type="text/css" href = "/lib/shjs/sh_style.min.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+    <meta charset="utf-16" />
+
+    <title>_</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+      <h1>Great blog, am i right!?</h1>
+
+      <p>
+        paragraph <e>paragraph</e> paragraph <e expl="some explanation <e expl='oh idk 2'> idk</e> lol">paragraph2</e> <e expl="very nice expl">paragraph</e> paragraph 
+      </p>
+
+      <div class="canvas">
+
+<div>
+let canvas;
+function setup(){ // The Boulder is going to win this in a LAND SLIDE!
+  canvas = createCanvas(600, 400);
+}
+
+p5.draw = function(){
+  background(20);
+  fill('aquamarine')
+  rect(100, 100, 400, 200);
+}
+</div>
+      </div>
+
+<pre>
+<code class="language-js">function template(a, b, _){
+  console.log(a, a + b);
+  return a + b;
+}</code>
+</pre>
+      <p>paragraph</p>
+
+    </div> <!-- .content -->
+  </body>
+</html>

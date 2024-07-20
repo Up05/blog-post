@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap");
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("/assets/JetBrainsMonoNL-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  background-color: var(--main-bg-col);
+}
+
+.content {
+  background-color: var(--secd-bg-col);
+}
+.content p *, .content p {
+  font-family: courier;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0px;
+}
+.content u {
+  -webkit-text-decoration-style: wavy;
+          text-decoration-style: wavy;
+}
+.content u .normal {
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
+}
+
+kbd {
+  background-color: var(--dark-bg-col);
+  padding-block: 2px;
+  padding-inline: 6px;
+}
+
+*:not(.canvas *, button, a) {
+  color: var(--main-text-col);
+}
+
+button {
+  color: var(--main-text-col);
+}
+
+e {
+  color: var(--e-col) !important;
+  -webkit-text-decoration: dotted underline;
+          text-decoration: dotted underline;
+  cursor: pointer;
+}
+
+pre {
+  border-radius: 8px;
+}
+
+button:not(.example) {
+  background-color: var(--main-bg-col);
+  border-color: var(--border-col);
+  font-size: 24px;
+}
+
+code {
+  font-family: courier, monospace !important;
+  background-color: var(--code-bg-col);
+  color: var(--code-col);
+  padding-inline: 5px;
+}
+
+a {
+  color: var(--a-col);
+}
+a:visited {
+  color: #800080;
+}
+
+.nav {
+  --nav-bg-col: rgba(61, 132, 170, 0.8);
+  --nav-br-col: #555;
+  background-color: var(--nav-bg-col);
+}
+.nav #mode-toggle {
+  border-bottom: var(--nav-br-col) 4px groove;
+  border-right: var(--nav-br-col) 4px groove;
+  background: none;
+}
+.nav a {
+  color: unset;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.explanation {
+  background-color: var(--main-bg-col);
+  border: var(--border-col) 2px outset;
+  border-radius: 8px;
+}
+
+.canvas button {
+  color: var(--main-text-col);
+  background-color: var(--secd-bg-col);
+}
+
+#blog-categories .category {
+  background-color: var(--secd-bg-col);
+  padding-block: 8px;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+
+    <!-- <script src="/lib/p5.min.js"></script> -->
+    <!-- <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <!-- <script src="lib/jquery.js"></script> --> -->
+    <!-- <script src="lib/shjs/sh_main.min.js"></script> -->
+    <script src="/lib/highlight/highlight.min.js"></script>
+    <script src="/lib/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/canvas-generator.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script defer src="/scripts/binds.js"></script>
+
+    <link rel="stylesheet" type="text/css" href = "/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href = "/styles/style.css">
+    <link rel="stylesheet" type="text/css" href = "/lib/shjs/sh_style.min.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+    <meta charset="utf-16" />
+
+    <title>_</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+      <h1>Sąlyginiai sakiniai</h1>
+      <p>
+        Sąlyginiai sakiniai atlieka kažkokį jiems duotą kodą, jei jiems duota sąlyga yra teisinga. Jie dažniausiai rašomi su <code>if</code>, kas išvertus į lietuvių kalbą reikškia <q>jei</q>. Pavyzdys su C:
+      </p>
+      <div class="comparison">
+        <pre><code class="language-C">int a = 5;
+if(a == 5)
+  a = 6;
+</code></pre>
+
+<pre><code class="language-C">int a = 5;
+if(a == 5){
+  a = 6;
+}
+</code></pre>
+      </div>
+      <p>
+        <i><q>{}</q>, arba riestiniai skliaustai, šiuo atveju nėra būtini, nes <code>if()</code> turi tik vieną eilutę.</i><br>
+        Čia <code>a</code> bus 5, kompiuteris pasižiūrės ar <code>a</code> yra penki ir, jei <code>a</code> bus lygu penkiems jis pakeis <code>a</code> reikšmę į 6.
+      </p>
+
+      <p>Sąlyginiai sakiniai taip pat turi <code>else</code> žodį, kuris išvertus į lietuvių kalbą, turbūt, reikškia <q>o</q>. Jei <code>a</code> yra lygu šešiems daryk taip, o, jei ne daryk kitaip.</p>
+<pre><code class="language-C">int a = 5;
+if(a == 5)
+  a = 6;
+else
+  puts("a NĖRA lygu 5"); 
+  // puts(), yra funkcija, kuri tiesiog išmeta tekstą į konsolę, 
+  // šiuo atveju nebūtina žinoti ką ji daro ir kaip.
+</code></pre>
+
+    <p>Beto sąlyginiai sakiniai turi jungtukus ir kelis lygumo operatorius.</p>
+
+    <label>Jungtukai:</label>
+    <table>
+      <thead><tr><th>Operatorius</th> <th>Paaiškinimas</th></tr></thead>
+      <tbody>
+        <tr><td>!</td>  <td>NE</td></tr>
+        <tr><td>&&</td> <td>IR</td></tr>
+        <tr><td>||</td> <td>IR/ARBA</td></tr>
+      </tbody>
+    </table>
+
+    <label>Lygumo operatoriai:</label>
+    <table>
+      <thead><tr><th>Operatorius</th> <th>Paaiškinimas</th></tr></thead>
+      <tbody>
+        <tr><td>==</td>           <td>LYGU</td></tr>
+        <tr><td>></td>            <td>DAUGIAU NEI</td></tr>
+        <tr><td>&lt;</td>         <td>MAŽIAU NEI</td></tr>
+        <tr><td>>= ir &lt;=</td>  <td>DAUGIAU/MAŽIAU, ARBA LYGU</td></tr>
+        <tr><td>!=</td>           <td>NELYGU</td></tr>
+    </tbody>
+  </table>
+
+  <pre><code class="language-C">int a = 5;
+if((a == 5 || a == 6) && a != 4)
+  a = 6;</code></pre>
+      <p>Jei <code>a</code> lygu penki, arba šeši, bet ne 4, <code>a</code> bus šeši. <br>
+        <i>Beje čia sąlygos nėra labai <q>protingos</q>, nes, pavyzdžiui, šioje sąlygoje, nei 5, nei 6 nelygu 4, taigi <code>&& a != 4</code> dalis yra visai nereikalinga.</i></p>
+    </div> <!-- .content -->
+  </body>
+</html>

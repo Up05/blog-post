@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+
+    <script src="/lib/p5.min.js"></script>
+    <!-- <!-- <script src="lib/p5.sound.min.js"></script> -->
+    <script src="/lib/bindsjs.js"></script>
+    <!-- <script src="lib/jquery.js"></script> --> -->
+    <!-- <script src="lib/shjs/sh_main.min.js"></script> -->
+    <script src="/lib/highlight/highlight.min.js"></script>
+    <script src="/lib/ace/src-min-noconflict/ace.js"></script>
+
+    <script src="/scripts/elements.js"></script>
+    <script src="/scripts/canvas-generator.js"></script>
+    <script src="/scripts/explanables.js"></script>
+    <script defer src="/scripts/binds.js"></script>
+
+    <link rel="stylesheet" type="text/css" href = "/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href = "/styles/style.css">
+    <link rel="stylesheet" type="text/css" href = "/lib/shjs/sh_style.min.css">
+
+    <link id="code-style" type="text/css" rel="stylesheet" href="/lib/highlight/styles/dark.min.css">
+    <meta charset="utf-16" />
+
+    <title>_</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  </head>
+  <body onload="modechanged(); hljs.highlightAll();">
+
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+      <h1>Kintamieji</h1>
+      <p>Kompiuterių programavime kintamieji laiko duomenis, kaip skaičius, raides, kates, kačių sarašus ir daug daugiau. šios reikšmės/duomenys/daiktai yra, plius, minus tiesiog <e expl='Kompiuteriai neturi tiesiog juostos su nupieštais 0 ir 1. Elektros kiekis kurį turi 1, pavyzdžiui, RAM <q>gabaliukas</q> būtų teisingiau.'>„nuliukai" ir „vienetukai"</e>, pavyzdžiui skaičius 32 būtų 0010 0000, raidė A būtų 0100 0001. <i>Nuliai kairėje nereikšmingi, kaip ir „aš turiu 000000000000000000000000001 saldainį".</i>
+      </p>
+
+      <p>Iki 11 klasės Matematikoje mes dažnai ieškome kintamųjų reikšmių, arba jų reikšmių intervalų, pavyzdžiui <code>3x + 9 = 0; -3x = 9; <u>(</u>3x = 9<u>)</u> / -3; x = -3;</code> Bet be to Matematikoje, ir ypač Fizikoje mes turime formules, kur mes naudojama turbūt panašiausius į I.T. kintamuosius, pavyzdžiui diskriminantas. <code>D = b² - 4ac;</code> ir suskaičiavę D mes naudojame tai ieškodami x₁ ir x₂, <code>x₁ = (-b - kvadratinė_šaknis_iš(D)) / 2a; x₂ = (-b + kvadratinė_šaknis_iš(D)) / 2a;</code> Be to, Matematikoje ir Fizikoje <q>x = y</q> reiškia, kad <code>x</code> YRA TAS PATS, KAIP <code>y</code>; Informatikoje: <e expl='priklauso nuo kalbos, kartais būna := ir =, kartais SET /A ir equ, ir pan.'><q>x = y</q></e> reiškia: <code>x</code> DABAR BUS <code>y</code>, <i>mes turime <q>==</q> patikrinti lygybę</i>.</p>
+      
+      <p>Skirtingos kalbos dažniausia turi truputi skirtingus kintamųjų <e expl="Kintamuosius pirmiausia reikia paskelbti, pranešti kompiuteriui(OS), jog jie yra ir dažnai koks jų dydis.">skelbimo</e> būdus, bet visos geros(kurias aš naudoju) kalbos naudoja formulę panašę į šią: <q>apibūdinimas/savybės</q> <q>tipas</q> <q>pavadinimas</q> <e expl='Šiuo atveju laužtiniai skliaustai reiškia „nebūtinai". Galima, bet nebūtina.'>[</e><q> = </q> <q>reikšmė</q>].</p>
+
+<pre><code class="language-C">// C / C++ / Java
+int geraSkaičiavimoSistema = 17;
+</code></pre>
+      <p><i>C, C++ ir Java pačiame priekyje gali turėti kintamųjų apibūdinimus, kaip <q>extern</q>(iš kažkur kitur), <q>final</q>(nesikeis/konstanta) ir daugiau.</i></p>
+<pre><code class="language-javascript">// Javascript
+let geraSkaičiavimoSistema = 17;
+</code></pre>
+      <p><i>Javascript neturi tipų (arba tipų, kuriuos programuotojai galėtų pasakyti). taigi čia yra tik <q>const</q>, konstanta, <q>let</q> ir <q>var</q>, kintamasis ir apibrėžimai, kaip <q>static</q> ir viskas! Beje: <code>const PI = 3.14</code>, o ne <code>const let PI = 3.14</code></i>.</p>
+<pre><code class="language-Rust">// Rust
+let gera_skaičiavimo_sistema:u8 = 17; // galima būtu vadinti ir <q>geraSkaičiavimoSistema</q>, bet kalbos kūrėjai pasakė, kad būtų gerai naudoti <q>snake_case</q> kintamųjų pavadinimams.
+</code></pre>
+      <p><i>Rust turi tipus, kaip C/C++, bet čia, kaip aišku bus skaičius, taigi pasakyti nebūtina. Aš pasakau, kad man duotu mažesnio dydžio skaičiaus tipą, u8 reiškia <q>unsigned int</q> su aštuoniais bitais. <q>unsigned</q> reiškia be ženklo(šiuo atveju(ir visais kitais...), be neigiamų skaičių), <q>int</q> reiškia sveikasis skaičius (be kablelio), <q>8 bitai</q>, tai 0000 0000, nes <q>int</q> dažniausia turi: 00000000 00000000 00000000 00000000.</i></p>
+
+<!-- ################################################################################################ -->
+      <br><br>
+
+      <h2>Kintamųjų tipai</h2>
+      <p>Kintamieji, kaip jau sakiau, turi tipus, jie šiaip nieko nereiškia, tik kiek atminties paimti programai ir į kurias funkcijas juos įdėti. Čia yra 4 primityvūs tipai, jie rašomi mažąja pirma raide ir du Daiktai/Objektai/... jie didžiąja. Primityvūs ir <u>nurodomieji</u> tipai turi kelius skirtumus, apie kuriuos, aš, tikiuosiu, kad pakalbėsiu ateityje.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mano pavadinimas</th>
+            <th>C</th>
+            <th>C++</th>
+            <th>Java</th>
+            <th>Rust</th>
+            <th>Trumpas aprašimas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sveikasis skaičius</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int</td>
+            <td>isize</td>
+            <td>Skaičius be kablelio (Integer/Sveikasis skaičius). Dažniausia turi 32 bitus, arba 4 baitus.</td>
+          </tr>
+          <tr>
+            <td>Taip, arba ne</td>
+            <td>-</td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>bool</td>
+            <td>Loginė reikšmė (būlis), taip arba ne, beje pačioje C kalboje nėra šio tipo, bet ji turi: &lt;stdbool.h&gt;, kas turi: <q>bool</q>. Dažniausia iš 1 baito.</td>
+          </tr>
+          <tr>
+            <td>Trupmenos</td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+            <td>fsize</td>
+            <td>Skaičius su kableliu, float(floating point number) nes kablelis/taškas keičia vietą. Dažniausia sudarytas iš 32 bitų, arba 4 baitų.</td>
+          </tr>
+          <tr>
+            <td>Viena raidė</td>
+            <td>char</td>
+            <td>char</td>
+            <td>char</td>
+            <td>char</td>
+            <td>Viena raidė, jei naudoja <e>ASCII</e>, tai 1 baitas, jei ne: dažniausia turi "w" prieš "char" ir naudoja iki 4 baitų.</td>
+          </tr>
+          <tr>
+            <td>Tekstas*</td>
+            <td>char[]</td>
+            <td>std::string</td>
+            <td>String</td>
+            <td>String</td>
+            <td>Tekstas, char[] negalima padidinti raidžių skaičiaus, reikia sukurti naują char masyvą, o kitus galima. String ateina iš "surištų" raidžių.</td>
+          </tr>
+          <tr>
+            <td>Objektas/<i>Daiktas</i></td>
+            <td>struct <i>Daiktas</i></td>
+            <td><i>Daiktas</i></td>
+            <td>Object/<i>Daiktas</i></td>
+            <td><i>Daiktas</i></td>
+            <td>Objektus, arba Daiktus aš, turbūt, paaiškinsiu vėliau, nes tai nevisai mažas dalykas, bet jų tipai rašomi <u>D</u>idžiaja pirma raide.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <i>* Tekstą aš padėjau prie kintamųjų, nes jis labai dažnai naudojamas, bet tai dažniausia, arba paprastas Objektas, arba kintamųjų masyvas/sąrašas. </i>
+
+<!-- ################################################################################################ -->
+      <br><br>
+
+      <h2>Ir viskas, plius, minus</h2>
+      <p>Kintamieji dar gali laikyti: funkcijų vietos ir kitų daiktų vietų rodyklius(pointer), masyvūs, ir daug daugiau. Bet šie daiktai yra nevisai pradmenyse, taigi, gal vėliau, o gal ir -- ne, dar nežinau.</p>
+
+    </div> <!-- .content -->
+  </body>
+</html>

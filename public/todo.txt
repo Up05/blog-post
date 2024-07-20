@@ -1,0 +1,71 @@
+# todo:       "- "
+# done:       "+ "
+# screw it:   "/ "
+# expandable: "? "
+
+- facebook/other embeds
+
+- keyboard shortcuts, haven't found anything to add keybinds to...
+
+- horizontal resizing doesn't change nav bar titles
+
+? do <q> where there are quotes & set the <html lang="en"> to "lt" 
+
+? "Ai, Beje" sekcija, kur aš paaiškinu linksmiau kažką žemesniam lygy
+
+Deployment:
+  + fix paths
+  / do the favicon.ico
+
+Tinklaraščių idėjos:
+  vaizdo effektai:
+    - fov
+    - anti-aliasing!
+    - V-sync
+    - resoliucija / ..
+
+Mano projektai:
+  Šitas Tinklaraščių tinklapis:
+    - explanables
+    - nav.js
+    - browser_lottery
+    - <q> & different quote hell
+  - Gal LWJGL žaidimas.
+
+Eksperimentai:
+  - Anglų kalba fizikos (gravity) biblioteka.
+
+  - public APIs
+  - "pixel-art"
+  
+  - klaviatūros pagreitinimai
+  
+Programavimo pradmenys:
+  + kintamieji
+  + funkcijos
+  + komentarai
+  ? vienas sakinys
+  - Objektai
+  - Masyvai
+  - Ciklai ir sąlyginiai sakiniai
+
+
+
+
+
++ just make a nodejs server for testing i guess...
++ make stand-alone <code> stand-out a bit!
++ accessibility with phones
++ clean up template_blog.html
++ gotta do fonts!   // I still haven't done this lmfaooo
++ oh boyyyy another highlighting library that I need to switch to... https://ace.c9.io/#nav=embedding
+  + log this in FAQ
+  + actually make a thing to run the code, since it doesn't ever run right now, since blur() doesn't work...
++ talk about node js
++ make a gambling thing for which internet browser someone should use!
+  / maybe add music to it or smth.
++ .canvas class elements stuff
+  + still doesn't highlight the code after editting for some reason
++ change hsjs to highlight.js in FAQ AND EVERY HTML THING ;-; for dark theme
++ explanables "ASCII" doesn't work for some reason?
+
